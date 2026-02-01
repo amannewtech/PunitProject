@@ -1,9 +1,12 @@
 /********** Template CSS **********/
 :root {
-    --primary: #F3BD00;
-    --secondary: #757575;
-    --light: #F3F6F8;
-    --dark: #0C2B4B;
+   /* Logo-based professional palette */
+    --primary: #0b1c4d;     /* Deep Navy (logo outer ring) */
+    --secondary: #1f3c88;   /* Royal Blue */
+    --accent: #3f6ad8;      /* Highlight Blue */
+
+    --light: #f4f6fb;       /* Soft background */
+    --dark: #0b1c4d;        /* Same as primary for uniformity */
 }
 
 .py-6 {
@@ -46,9 +49,15 @@
     transition: .5s;
 }
 
-.btn.btn-primary,
-.btn.btn-outline-primary:hover {
-    color: #FFFFFF;
+.btn-primary {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
 }
 
 .btn-square {
@@ -110,6 +119,8 @@
     vertical-align: middle;
     margin-left: 8px;
 }
+
+
 
 @media (max-width: 991.98px) {
     .navbar .navbar-nav .nav-link  {
@@ -174,7 +185,7 @@
         position: relative;
         min-height: 450px;
     }
-    
+
     #header-carousel .carousel-item img {
         position: absolute;
         width: 100%;

@@ -29,6 +29,9 @@
 
     <!-- Template Stylesheet -->
     <link href="{{ asset('frontend/css/style.css') }}" rel="stylesheet">
+
+    {{-- Custom CSS --}}
+    <link href="{{ asset('frontend/css/home-page.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -44,6 +47,8 @@
       @yield('frontend-container')
 
      @include('frontend.layout.footer')
+
+     @stack('frontend-js')
 </body>
 
 </html>

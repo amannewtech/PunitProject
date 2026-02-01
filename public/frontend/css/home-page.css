@@ -1,0 +1,532 @@
+/* ===================================================== */
+/* ROOT COLORS (From Marwari College Logo) */
+/* ===================================================== */
+:root {
+    --primary: #0b1c4d;     /* Deep Navy */
+    --secondary: #1f3c88;   /* Royal Blue */
+    --accent: #3f6ad8;      /* Highlight Blue */
+    --light-bg: #f4f6fb;
+    --white: #ffffff;
+}
+
+/* ===================================================== */
+/* DASHBOARD CARDS */
+/* ===================================================== */
+.dashboard-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.dashboard-card {
+    width: 180px;
+    height: 150px;
+    background: var(--light-bg);
+    border: 2px solid var(--secondary);
+    border-radius: 12px;
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(11, 28, 77, 0.25);
+    background: var(--white);
+}
+
+.dashboard-card img {
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.dashboard-card h6 {
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--primary);
+    margin: 0;
+}
+
+/* Border Variations (still uniform) */
+.border-blue   { border-color: var(--primary); }
+.border-green  { border-color: var(--secondary); }
+.border-orange { border-color: var(--accent); }
+.border-red    { border-color: var(--primary); }
+
+/* Clickable Card Wrapper */
+.dashboard-link {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+}
+
+/* ===================================================== */
+/* ADMISSION NOTICE */
+/* ===================================================== */
+.admission-box {
+    border: 1.5px solid var(--secondary);
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--white);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.admission-header {
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    color: var(--white);
+    font-weight: 700;
+    text-align: center;
+    padding: 10px;
+    font-size: 18px;
+    letter-spacing: 0.4px;
+}
+
+.admission-header,
+.announcement-header {
+    min-height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.admission-body,
+.notice-list {
+    max-height: 380px;
+}
+
+.admission-header i,
+.announcement-header i {
+    font-size: 20px;
+}
+
+
+.admission-body {
+    overflow-y: auto;
+    padding: 15px;
+    background: var(--white);
+}
+
+/* Notice Text */
+/* ===================================================== */
+/* ADMISSION NOTICE – ENHANCED HIGHLIGHTING */
+/* ===================================================== */
+
+/* Each notice block */
+.admission-body p {
+    position: relative;
+    background: #f8faff;
+    border-left: 5px solid var(--accent);
+    padding: 10px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 12px;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.admission-body p:hover {
+    background: #eef3ff;
+    transform: translateX(4px);
+}
+
+/* ================= Notice Variants ================= */
+
+/* Important / Warning */
+.admission-body p.notice-warning {
+    background: #fff4f4;
+    border-left-color: #dc3545;
+}
+
+/* Information */
+.admission-body p.notice-info {
+    background: #f0f6ff;
+    border-left-color: var(--secondary);
+}
+
+/* Success / Open Admission */
+.admission-body p.notice-success {
+    background: #f2fff6;
+    border-left-color: #198754;
+}
+
+/* ================= Links ================= */
+.admission-body a {
+    background: var(--secondary);
+    color: var(--white);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+    text-decoration: none;
+    margin-left: 6px;
+}
+
+.admission-body a:hover {
+    background: var(--accent);
+}
+
+/* ===================================================== */
+/* ABOUT COLLEGE */
+/* ===================================================== */
+
+/* .about-box {
+    background: var(--white);
+    border: 1.5px solid var(--secondary);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+} */
+
+.about-box p{
+
+    text-align: justify;
+    line-height: 1.7;
+    text-indent: 20px;
+}
+
+/* ============================== */
+/* MULTI ITEM ADMIN CAROUSEL */
+/* ============================== */
+
+.admin-carousel .carousel-inner {
+    display: flex;
+}
+
+.admin-carousel .carousel-item {
+    display: block;
+    flex: 0 0 33.3333%;
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Prevent Bootstrap from hiding items */
+.admin-carousel .carousel-item.active,
+.admin-carousel .carousel-item-next,
+.admin-carousel .carousel-item-prev {
+    display: block;
+}
+
+/* Slide ONE card at a time */
+.admin-carousel .carousel-item-next {
+    transform: translateX(33.3333%);
+}
+
+.admin-carousel .carousel-item-prev {
+    transform: translateX(-33.3333%);
+}
+
+/* ============================== */
+/* ADMIN CARD (your existing styles stay) */
+/* ============================== */
+
+.admin-box {
+    background: #f8f9fa;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.admin-card {
+    background: #ffffff;
+    border-radius: 12px;
+    text-align: center;
+    padding: 15px 10px;
+    transition: all 0.3s ease;
+    height: 100%;
+    cursor: pointer;
+}
+
+.admin-card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5%;
+    border: 1px solid var(--primary);
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.admin-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.admin-card:hover img {
+    transform: scale(1.08);
+    border-color: #198754;
+}
+
+/* ============================== */
+/* OUTER CAROUSEL CONTROLS */
+/* ============================== */
+
+.admin-carousel .carousel-control-prev,
+.admin-carousel .carousel-control-next {
+    width: 45px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.admin-carousel .carousel-control-prev {
+    left: -30px;   /* ⬅ move outside */
+}
+
+.admin-carousel .carousel-control-next {
+    right: -30px;  /* ➡ move outside */
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: var(--secondary);
+    border-radius: 50%;
+    padding: 14px;
+}
+
+
+
+/* ===================================== */
+/* CARD GENERAL */
+/* ===================================== */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* ===================================== */
+/* ANNOUNCEMENT HEADER */
+/* ===================================== */
+.announcement-header {
+    background: linear-gradient(135deg, var(--primary), #084298);
+    color: #fff;
+    padding: 12px 16px;
+    border-radius: 10px 10px 0 0;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* ===================================== */
+/* TABS */
+/* ===================================== */
+.notice-tabs {
+    background: #f8f9fa;
+    padding: 6px;
+    border-radius: 8px;
+}
+
+.notice-tabs .nav-link {
+    border: none;
+    font-weight: 600;
+    color: #555;
+    border-radius: 6px;
+    padding: 6px 14px;
+    transition: 0.3s;
+}
+
+.notice-tabs .nav-link.active {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* ===================================== */
+/* NOTICE LIST */
+/* ===================================== */
+.notice-list {
+    max-height: 380px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+/* ===================================== */
+/* NOTICE ITEM */
+/* ===================================== */
+.notice-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #fff;
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+    text-decoration: none;
+    border: 1px solid #eee;
+    transition: 0.3s;
+}
+
+.notice-item:hover {
+    background: #fff;
+    transform: translateX(4px);
+}
+
+/* ===================================== */
+/* COMPACT DATE BADGE */
+/* ===================================== */
+.notice-date {
+    min-width: 80px;
+    background: var(--secondary);
+    border-left: 4px solid var(--primary);
+    padding: 6px 6px;
+    border-radius: 6px;
+    text-align: center;
+    line-height: 1.2;
+    font-weight: 700;
+}
+
+.notice-date .dm {
+    display: block;
+    font-size: 14px;
+    color: var(--white);
+}
+
+.notice-date .year {
+    display: block;
+    font-size: 11px;
+    color: #fbfbfc;
+}
+
+/* ===================================== */
+/* NOTICE TEXT */
+/* ===================================== */
+.notice-text {
+    color: #110733;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+/* ===================================== */
+/* NEW BADGE */
+/* ===================================== */
+.badge-new {
+    background: #dc3545;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 3px 6px;
+    border-radius: 4px;
+    margin-left: 6px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.2; }
+    100% { opacity: 1; }
+}
+
+/* ===================================== */
+/* VIEW ALL BUTTON */
+/* ===================================== */
+.btn-view-all {
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+    font-weight: 600;
+    padding: 4px 14px;
+    border-radius: 20px;
+    transition: 0.3s ease;
+}
+
+.btn-view-all:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+
+/* ================================ */
+/* DEPARTMENT SECTION */
+/* ================================ */
+
+.department-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 35px 25px;
+    height: 100%;
+    border-radius: 18px;
+    text-decoration: none;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    transition: all 0.35s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover overlay */
+.department-box::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #0d6efd, #198754);
+    opacity: 0;
+    transition: opacity 0.35s ease;
+    z-index: 0;
+}
+
+.department-box:hover::before {
+    opacity: 0.95;
+}
+
+/* Icon */
+.dept-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: #f1f5ff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+    transition: all 0.35s ease;
+    z-index: 1;
+}
+
+.dept-icon i {
+    font-size: 32px;
+    color: #0d6efd;
+}
+
+/* Title */
+.department-box h5 {
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 6px;
+    z-index: 1;
+}
+
+/* Subtitle */
+.department-box span {
+    font-size: 14px;
+    color: #6c757d;
+    z-index: 1;
+}
+
+/* Hover effects */
+.department-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.department-box:hover h5,
+.department-box:hover span {
+    color: #fff;
+}
+
+.department-box:hover .dept-icon {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.department-box:hover .dept-icon i {
+    color: #fff;
+}
+
+/* Responsive spacing */
+@media (max-width: 576px) {
+    .department-box {
+        padding: 30px 20px;
+    }
+}

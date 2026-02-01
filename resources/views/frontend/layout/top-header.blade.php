@@ -1,7 +1,7 @@
 <!-- Topbar Start -->
     <div class="container-fluid bg-dark text-light p-0">
         <div class="row gx-0 d-none d-lg-flex">
-            <div class="col-lg-7 px-5 text-start">
+            {{-- <div class="col-lg-7 px-5 text-start">
                 <div class="h-100 d-inline-flex align-items-center me-4">
                     <small class="fa fa-map-marker-alt text-primary me-2"></small>
                     <small>Marwari College, Ranchi Near Swami Vivekanand Sarovar Lake Road, Hindpiri, Ranchi Jharkhand-834001</small>
@@ -10,7 +10,7 @@
                     <small class="far fa-clock text-primary me-2"></small>
                     <small>Mon - Fri : 09.00 AM - 09.00 PM</small>
                 </div>
-            </div>
+            </div> --}}
             <div class="col-lg-5 px-5 text-end">
                 <div class="h-100 d-inline-flex align-items-center me-4">
                     <small class="fa fa-phone-alt text-primary me-2"></small>

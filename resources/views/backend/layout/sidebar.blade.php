@@ -3,8 +3,8 @@
             <div class="m-header">
                 <a href="index.html" class="b-brand">
                     <!-- ========   change your logo hear   ============ -->
-                    <img src="{{asset('backend/images/logo-full.png')}}" alt="" class="logo logo-lg" />
-                    <img src="{{asset('backend/images/logo-abbr.png')}}" alt="" class="logo logo-sm" />
+                    <img src="{{asset('backend/images/logo-small.png')}}"  alt="" class="logo logo-lg" />
+                    <img src="{{asset('backend/images/logo-small.png')}}"  alt="" class="logo logo-sm" />
                 </a>
             </div>
             <div class="navbar-content">
