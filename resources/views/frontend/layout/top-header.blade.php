@@ -1,28 +1,41 @@
 <!-- Topbar Start -->
-    <div class="container-fluid bg-dark text-light p-0">
-        <div class="row gx-0 d-none d-lg-flex">
-            {{-- <div class="col-lg-7 px-5 text-start">
-                <div class="h-100 d-inline-flex align-items-center me-4">
-                    <small class="fa fa-map-marker-alt text-primary me-2"></small>
-                    <small>Marwari College, Ranchi Near Swami Vivekanand Sarovar Lake Road, Hindpiri, Ranchi Jharkhand-834001</small>
-                </div>
-                <div class="h-100 d-inline-flex align-items-center">
-                    <small class="far fa-clock text-primary me-2"></small>
-                    <small>Mon - Fri : 09.00 AM - 09.00 PM</small>
-                </div>
-            </div> --}}
-            <div class="col-lg-5 px-5 text-end">
-                <div class="h-100 d-inline-flex align-items-center me-4">
+<div class="container-fluid bg-dark text-light p-0">
+    <div class="row gx-0 align-items-center text-center text-lg-start py-1 py-lg-0">
+
+        <!-- Top Left -->
+        <div class="col-lg-4 col-md-12 px-3 px-lg-5 mb-2 mb-lg-0">
+            <div class="d-flex align-items-center justify-content-between justify-content-lg-start gap-lg-3">
+
+                <!-- Phone -->
+                <div class="d-flex align-items-center">
                     <small class="fa fa-phone-alt text-primary me-2"></small>
-                    <small>+012 345 6789</small>
+                    <small>0651-221 3134</small>
                 </div>
-                <div class="h-100 d-inline-flex align-items-center mx-n2">
-                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-square btn-link rounded-0" href=""><i class="fab fa-instagram"></i></a>
+
+                <!-- Social Icons -->
+                <div class="d-flex align-items-center">
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-square btn-link rounded-0" href="#"><i class="fab fa-instagram"></i></a>
                 </div>
+
             </div>
         </div>
+
+        <!-- Top Right -->
+        <div class="col-lg-8 col-md-12 px-3 px-lg-5">
+            <div class="d-flex flex-wrap justify-content-center justify-content-lg-end gap-2">
+                <a class="border-0 border-end border-secondary px-2" href="https://www.marwaricollegernc.com/">Intermediate</a>
+                <a class="border-0 border-end border-secondary px-2" href="#">Scholarship</a>
+                <a class="border-0 border-end border-secondary px-2" href="#">RTI</a>
+                <a class="border-0 border-end border-secondary px-2" href="#">Discipline</a>
+                <a class="border-0 border-end border-secondary px-2" href="#">Tender</a>
+                <a class="border-0 border-end border-secondary px-2" href="#">Webmail</a>
+                <a class="border-0 px-2" href="#">Login</a>
+            </div>
+        </div>
+
     </div>
-    <!-- Topbar End -->
+</div>
+<!-- Topbar End -->

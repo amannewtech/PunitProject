@@ -1,12 +1,12 @@
 /********** Template CSS **********/
 :root {
-   /* Logo-based professional palette */
-    --primary: #0b1c4d;     /* Deep Navy (logo outer ring) */
-    --secondary: #1f3c88;   /* Royal Blue */
-    --accent: #3f6ad8;      /* Highlight Blue */
+    /* Logo-based professional palette */
+    --primary: #0b1c4d; /* Deep Navy (logo outer ring) */
+    --secondary: #1f3c88; /* Royal Blue */
+    --accent: #3f6ad8; /* Highlight Blue */
 
-    --light: #f4f6fb;       /* Soft background */
-    --dark: #0b1c4d;        /* Same as primary for uniformity */
+    --light: #f4f6fb; /* Soft background */
+    --dark: #0b1c4d; /* Same as primary for uniformity */
 }
 
 .py-6 {
@@ -27,26 +27,28 @@
     z-index: 99;
 }
 
-
 /*** Spinner ***/
 #spinner {
     opacity: 0;
     visibility: hidden;
-    transition: opacity .5s ease-out, visibility 0s linear .5s;
+    transition:
+        opacity 0.5s ease-out,
+        visibility 0s linear 0.5s;
     z-index: 99999;
 }
 
 #spinner.show {
-    transition: opacity .5s ease-out, visibility 0s linear 0s;
+    transition:
+        opacity 0.5s ease-out,
+        visibility 0s linear 0s;
     visibility: visible;
     opacity: 1;
 }
 
-
 /*** Button ***/
 .btn {
     font-weight: 500;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .btn-primary {
@@ -85,24 +87,22 @@
     font-weight: normal;
 }
 
-
 /*** Navbar ***/
 .navbar.sticky-top {
     top: -100px;
-    transition: .5s;
+    transition: 0.5s;
 }
 
-.navbar .navbar-brand,
+/* .navbar .navbar-brand,
 .navbar a.btn {
     height: 80px
-}
+} */
 
 .navbar .navbar-nav .nav-link {
-    margin-right: 30px;
-    padding: 25px 0;
+    margin-right: 20px;
+    padding: 5px 0;
     color: var(--dark);
     font-weight: 500;
-    text-transform: uppercase;
     outline: none;
 }
 
@@ -115,21 +115,19 @@
     border: none;
     content: "\f107";
     font-family: "Font Awesome 5 Free";
-    font-weight: 900;
+    font-weight: 600;
     vertical-align: middle;
-    margin-left: 8px;
+    margin-left: 1px;
 }
 
-
-
 @media (max-width: 991.98px) {
-    .navbar .navbar-nav .nav-link  {
+    .navbar .navbar-nav .nav-link {
         margin-right: 0;
         padding: 10px 0;
     }
 
     .navbar .navbar-nav {
-        border-top: 1px solid #EEEEEE;
+        border-top: 1px solid #eeeeee;
     }
 }
 
@@ -141,17 +139,67 @@
         top: 150%;
         opacity: 0;
         visibility: hidden;
-        transition: .5s;
+        transition: 0.5s;
     }
 
     .navbar .nav-item:hover .dropdown-menu {
         top: 100%;
         visibility: visible;
-        transition: .5s;
+        transition: 0.5s;
         opacity: 1;
     }
 }
 
+/* ===================================== */
+/* MEGA MENU – BUG FREE VERSION */
+/* ===================================== */
+
+.dropdown-mega {
+    position: static;
+}
+
+/* Mega dropdown container */
+.mega-menu {
+    width: 100%;
+    left: 0;
+    right: 0;
+    padding: 30px;
+    border: none;
+    border-radius: 0 0 14px 14px;
+}
+
+/* Section title */
+.mega-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+    font-size: 15px;
+}
+
+/* Desktop behavior */
+@media (min-width: 992px) {
+    .dropdown-mega .mega-menu {
+        position: absolute;
+        top: 100%;
+        display: none;
+    }
+
+    .dropdown-mega.show .mega-menu {
+        display: block;
+    }
+}
+
+/* Mobile behavior */
+@media (max-width: 991px) {
+    .mega-menu {
+        position: static;
+        padding: 15px;
+        box-shadow: none;
+    }
+
+    .mega-menu .dropdown-item {
+        padding-left: 0;
+    }
+}
 
 /*** Header ***/
 .carousel-caption {
@@ -163,7 +211,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: rgba(0, 0, 0, .75);
+    background: rgba(0, 0, 0, 0.75);
     z-index: 1;
 }
 
@@ -183,7 +231,7 @@
 @media (max-width: 768px) {
     #header-carousel .carousel-item {
         position: relative;
-        min-height: 450px;
+        min-height: 250px;
     }
 
     #header-carousel .carousel-item img {
@@ -195,14 +243,15 @@
 }
 
 .page-header {
-    background: linear-gradient(rgba(0, 0, 0, .75), rgba(0, 0, 0, .75)), url(../img/carousel-1.jpg) center center no-repeat;
+    background:
+        linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+        url(../img/carousel-1.jpg) center center no-repeat;
     background-size: cover;
 }
 
-.breadcrumb-item+.breadcrumb-item::before {
+.breadcrumb-item + .breadcrumb-item::before {
     color: #999999;
 }
-
 
 /*** Facts ***/
 @media (min-width: 991.98px) {
@@ -213,11 +262,12 @@
     }
 }
 
-
 /*** Courses ***/
 .courses {
     min-height: 100vh;
-    background: linear-gradient(rgba(255, 255, 255, .9), rgba(255, 255, 255, .9)), url(../img/carousel-1.jpg) center center no-repeat;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)),
+        url(../img/slider/) center center no-repeat;
     background-attachment: fixed;
     background-size: cover;
 }
@@ -231,10 +281,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, .5);
+    background: rgba(0, 0, 0, 0.5);
     overflow: hidden;
     opacity: 0;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .courses-item:hover .courses-overlay {
@@ -242,14 +292,13 @@
     opacity: 1;
 }
 
-
 /*** Team ***/
 .team-items {
-    margin: -.75rem;
+    margin: -0.75rem;
 }
 
 .team-item {
-    padding: .75rem;
+    padding: 0.75rem;
 }
 
 .team-item::after {
@@ -259,8 +308,8 @@
     height: 0;
     top: 0;
     left: 0;
-    background: #FFFFFF;
-    transition: .5s;
+    background: #ffffff;
+    transition: 0.5s;
     z-index: -1;
 }
 
@@ -278,17 +327,16 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, .75);
+    background: rgba(0, 0, 0, 0.75);
     overflow: hidden;
     opacity: 0;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .team-item:hover .team-social {
     height: 100%;
     opacity: 1;
 }
-
 
 /*** Testimonial ***/
 .testimonial-carousel .owl-dots {
@@ -307,7 +355,7 @@
     height: 20px;
     background: transparent;
     border: 2px solid var(--primary);
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .testimonial-carousel .owl-dot.active {
@@ -321,7 +369,6 @@
     height: 150px;
 }
 
-
 /*** Footer ***/
 .footer .btn.btn-link {
     display: block;
@@ -331,7 +378,7 @@
     color: var(--light);
     font-weight: normal;
     text-transform: capitalize;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .footer .btn.btn-link::before {
@@ -353,10 +400,10 @@
     background: #092139;
 }
 
-.copyright a {
+/* .copyright a {
     color: var(--primary);
 }
 
 .copyright a:hover {
     color: var(--light);
-}
+} */

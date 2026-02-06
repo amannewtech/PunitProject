@@ -32,6 +32,7 @@
 
     {{-- Custom CSS --}}
     <link href="{{ asset('frontend/css/home-page.css') }}" rel="stylesheet">
+    @stack('frontend-css')
 </head>
 
 <body>

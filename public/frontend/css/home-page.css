@@ -9,6 +9,32 @@
     --white: #ffffff;
 }
 
+/* Menu Button */
+.menu-btn {
+    padding: 8px 20px;              /* smaller size */
+    border-radius: 30px;            /* rounded pill */
+    font-size: 14px;
+    font-weight: 500;
+    background-color: var(--primary);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.menu-btn i {
+    transition: transform 0.3s ease;
+}
+
+.menu-btn:hover {
+    background-color: var(--secondary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.menu-btn:hover i {
+    transform: translateX(5px);
+}
+
+
 /* ===================================================== */
 /* DASHBOARD CARDS */
 /* ===================================================== */
@@ -61,6 +87,26 @@
     color: inherit;
     display: inline-block;
 }
+
+/* =============================== */
+/* MOBILE DASHBOARD CARD FIX */
+/* =============================== */
+@media (max-width: 576px) {
+    .dashboard-wrapper {
+        justify-content: space-between;
+    }
+
+    .dashboard-link {
+        width: 45%;
+    }
+
+    .dashboard-card {
+        width: 100%;
+    }
+}
+
+
+
 
 /* ===================================================== */
 /* ADMISSION NOTICE */
@@ -188,45 +234,35 @@
     text-indent: 20px;
 }
 
-/* ============================== */
-/* MULTI ITEM ADMIN CAROUSEL */
-/* ============================== */
+/* ========================================= */
+/* ADMINISTRATION SECTION - SWIPER CAROUSEL */
+/* ========================================= */
 
-.admin-carousel .carousel-inner {
-    display: flex;
-}
-
-.admin-carousel .carousel-item {
-    display: block;
-    flex: 0 0 33.3333%;
-    transition: transform 0.6s ease-in-out;
-}
-
-/* Prevent Bootstrap from hiding items */
-.admin-carousel .carousel-item.active,
-.admin-carousel .carousel-item-next,
-.admin-carousel .carousel-item-prev {
-    display: block;
-}
-
-/* Slide ONE card at a time */
-.admin-carousel .carousel-item-next {
-    transform: translateX(33.3333%);
-}
-
-.admin-carousel .carousel-item-prev {
-    transform: translateX(-33.3333%);
-}
-
-/* ============================== */
-/* ADMIN CARD (your existing styles stay) */
-/* ============================== */
-
+/* Outer admin box */
 .admin-box {
     background: #f8f9fa;
     border-radius: 12px;
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
+
+/* Swiper container */
+.admin-slider {
+    position: relative;
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+/* Swiper slide alignment */
+.admin-slider .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    box-sizing: border-box;
+}
+
+/* ============================== */
+/* ADMIN CARD (UNCHANGED DESIGN) */
+/* ============================== */
 
 .admin-card {
     background: #ffffff;
@@ -236,6 +272,7 @@
     transition: all 0.3s ease;
     height: 100%;
     cursor: pointer;
+    width: 100%;
 }
 
 .admin-card img {
@@ -248,6 +285,16 @@
     transition: 0.3s;
 }
 
+.admin-card h6 {
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.admin-card span {
+    font-size: 14px;
+    color: #6c757d;
+}
+
 .admin-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
@@ -258,31 +305,6 @@
     border-color: #198754;
 }
 
-/* ============================== */
-/* OUTER CAROUSEL CONTROLS */
-/* ============================== */
-
-.admin-carousel .carousel-control-prev,
-.admin-carousel .carousel-control-next {
-    width: 45px;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.admin-carousel .carousel-control-prev {
-    left: -30px;   /* ⬅ move outside */
-}
-
-.admin-carousel .carousel-control-next {
-    right: -30px;  /* ➡ move outside */
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-    background-color: var(--secondary);
-    border-radius: 50%;
-    padding: 14px;
-}
 
 
 
@@ -529,4 +551,86 @@
     .department-box {
         padding: 30px 20px;
     }
+}
+
+/* ============================= */
+/* MARWARI COLLEGE DESKTOP HEADER */
+/* ============================= */
+.college-header {
+    background: linear-gradient(
+        135deg,
+        var(--light-bg) 0%,
+        #e9edff 45%,
+        var(--white) 100%
+    );
+    border-top: 4px solid var(--primary);
+    border-bottom: 3px solid var(--secondary);
+    padding: 20px 0;
+    box-shadow: 0 6px 18px rgba(11, 28, 77, 0.15);
+}
+
+/* Logo */
+.college-logo {
+    width: 110px;
+    height: auto;
+}
+
+/* Title */
+.college-title {
+    font-size: 38px;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+    color: var(--primary);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+/* Subtitle */
+.college-subtitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--secondary);
+    margin-bottom: 4px;
+}
+
+/* Under University */
+.college-under {
+    font-size: 17px;
+    font-style: italic;
+    color: var(--accent);
+    margin: 0;
+}
+
+/* Desktop only */
+@media (max-width: 991px) {
+    .college-header {
+        display: none;
+    }
+}
+
+
+/* =============================== */
+/* Important Website Css */
+
+.important-websites-slider {
+    overflow: hidden; /* extra safety */
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.important-websites-slider img {
+    max-height: 80px;
+    max-width: 100%;
+    width: auto;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.important-websites-slider img:hover {
+    transform: scale(1.1);
 }
