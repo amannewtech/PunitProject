@@ -1,0 +1,6 @@
+body.modal-open:has(.custom-modal.show) .nxl-container,
+body.modal-open:has(.custom-modal.show) .nxl-header,
+body.modal-open:has(.custom-modal.show) .nxl-navigation,
+body.modal-open:has(.custom-modal.show) .page-header {
+    filter: none !important;
+}

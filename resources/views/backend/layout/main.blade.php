@@ -8,6 +8,8 @@
     <meta name="description" content="" />
     <meta name="keyword" content="" />
     <meta name="author" content="flexilecode" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <!--! The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags !-->
     <!--! BEGIN: Apps Title-->
     <title>Dashboard || Marwari College Ranchi</title>
@@ -24,6 +26,8 @@
     <!--! END: Vendors CSS-->
     <!--! BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/theme.min.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('backend/css/custom.css') }}" />
+
     <!--! END: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="{{ asset('backend/vendors/css/dataTables.bs5.min.css') }}">
 
@@ -81,14 +85,21 @@
     <script src="{{ asset('backend/vendors/js/circle-progress.min.js') }}"></script>
     <!--! END: Vendors JS !-->
     <!--! BEGIN: Apps Init  !-->
-    <script src="{{ asset('backend/js/common-init.min.js') }}"></script>
-    <script src="{{ asset('backend/js/dashboard-init.min.js') }}"></script>
+    {{-- <script src="{{ asset('backend/js/common-init.min.js') }}"></script>
+    <script src="{{ asset('backend/js/dashboard-init.min.js') }}"></script> --}}
     <!--! END: Apps Init !-->
     <!--! BEGIN: Theme Customizer  !-->
     <script src="{{ asset('backend/js/theme-customizer-init.min.js') }}"></script>
     <!--! END: Theme Customizer !-->
     <script src="{{ asset('backend/vendors/js/dataTables.min.js') }}"></script>
     <script src="{{ asset('backend/vendors/js/dataTables.bs5.min.js') }}"></script>
+    <script>
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+    </script>
 
     @stack('backend-js')
 </body>

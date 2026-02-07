@@ -13,6 +13,24 @@ return new class extends Migration
     {
         Schema::create('departments', function (Blueprint $table) {
             $table->id();
+
+            // Relations
+            $table->foreignId('stream_id')
+                  ->constrained('streams')
+                  ->cascadeOnDelete();
+
+            // Core fields
+            $table->string('department_name');
+            $table->string('slug')->unique();
+            $table->text('description')->nullable();
+
+            // Status & visibility
+            $table->boolean('status')->default(1);
+            $table->boolean('show_web')->default(1);
+
+            // Ordering
+            $table->integer('order')->default(0);
+
             $table->timestamps();
         });
     }
