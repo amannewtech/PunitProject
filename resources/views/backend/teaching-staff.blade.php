@@ -2,44 +2,44 @@
 
 @section('backend-container')
     <!-- =========================
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 PAGE HEADER
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ========================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         PAGE HEADER
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ========================= -->
     <div class="page-header">
         <div class="page-header-left d-flex align-items-center">
             <div class="page-header-title">
-                <h5 class="m-b-10">Stream</h5>
+                <h5 class="m-b-10">Teaching Staff</h5>
             </div>
             <ul class="breadcrumb">
                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item">Stream</li>
+                <li class="breadcrumb-item">Teaching Staff</li>
             </ul>
         </div>
     </div>
 
     <!-- =========================
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 MAIN CONTENT
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ========================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         MAIN CONTENT
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ========================= -->
     <div class="main-content">
 
         <!-- =========================
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     TABS
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ========================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             TABS
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ========================= -->
         <ul class="nav nav-tabs mb-3" role="tablist">
             <li class="nav-item">
                 <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#list">
-                    Stream List
+                    Teaching Staff List
                 </button>
             </li>
 
             <li class="nav-item">
                 <button class="nav-link" data-bs-toggle="tab" data-bs-target="#add">
-                    Add Stream
+                    Add Teaching Staff
                 </button>
             </li>
 
             <li class="nav-item" id="editTab" hidden>
                 <button class="nav-link" data-bs-toggle="tab" data-bs-target="#edit">
-                    Edit Stream
+                    Edit Teaching Staff
                 </button>
             </li>
         </ul>
@@ -47,53 +47,61 @@
         <div class="tab-content">
 
             <!-- =========================
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         STREAM LIST TAB
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ========================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 STREAM LIST TAB
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ========================= -->
             <div class="tab-pane fade show active" id="list">
 
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="card-title">Stream List</h5>
+                        <h5 class="card-title">Teaching Staff List</h5>
                     </div>
 
                     <div class="card-body p-0">
                         <div class="table-responsive">
-                            <table class="table table-hover" id="streamList">
+                            <table class="table table-hover" id="teacherList">
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Stream Name</th>
-                                        <th>Slug</th>
-                                        <th>Status</th>
+                                        <th>Name</th>
+                                        <th>Department</th>
+                                        <th>Designation</th>
+                                        <th>Employee Type</th>
+                                        <th>Email</th>
+                                        <th>Mobile</th>
                                         <th>Show Web</th>
+                                        <th>Status</th>
                                         <th>Order</th>
                                         <th class="text-end">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($streams as $key => $stream)
+                                    @foreach ($teachers as $key => $teacher)
                                         <tr>
                                             <td>{{ $key + 1 }}</td>
-                                            <td>{{ $stream->name }}</td>
-                                            <td>{{ $stream->slug }}</td>
-                                            <td>{{ $stream->status ? 'Active' : 'Inactive' }}</td>
-                                            <td>{{ $stream->show_web ? 'Yes' : 'No' }}</td>
-                                            <td>{{ $stream->order }}</td>
+                                            <td>{{ $teacher->name }}</td>
+                                            <td>{{ $teacher->department->department_name }}</td>
+                                            <td>{{ $teacher->designation->designation_name }}</td>
+                                            <td>{{ $teacher->employeeType->employee_type }}</td>
+                                            <td>{{ $teacher->email }}</td>
+                                            <td>{{ $teacher->phone }}</td>
+                                            <td>{{ $teacher->show_on_web ? 'Yes' : 'No' }}</td>
+                                            <td>{{ $teacher->status ? 'Active' : 'Inactive' }}</td>
+                                            <td>{{ $teacher->order }}</td>
                                             <td class="text-end">
                                                 <div class="hstack gap-2 justify-content-end">
                                                     <a href="javascript:void(0);"
                                                         class="avatar-text avatar-md viewBtn btn-success"
-                                                        data-id="{{ $stream->id }}">
+                                                        data-id="{{ $teacher->id }}">
                                                         <i class="feather-eye"></i>
                                                     </a>
                                                     <a href="javascript:void(0);"
                                                         class="avatar-text avatar-md editBtn btn-primary"
-                                                        data-id="{{ $stream->id }}">
+                                                        data-id="{{ $teacher->id }}">
                                                         <i class="feather-edit"></i>
                                                     </a>
                                                     <a href="javascript:void(0);"
                                                         class="avatar-text avatar-md deleteBtn btn-danger"
-                                                        data-id="{{ $stream->id }}">
+                                                        data-id="{{ $teacher->id }}">
                                                         <i class="feather-trash-2"></i>
                                                     </a>
                                                 </div>
@@ -108,89 +116,205 @@
             </div>
 
             <!-- =========================
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ADD STREAM TAB
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ========================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 ADD STREAM TAB
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ========================= -->
             <div class="tab-pane fade" id="add">
 
                 <div class="card">
                     <div class="card-header">
-                        <h5>Add Stream</h5>
+                        <h5>Add Teaching Staff</h5>
                     </div>
 
                     <div class="card-body">
-                        <form id="addStreamForm" enctype="multipart/form-data">
+                        <form id="addTeacherForm" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row">
 
-                                <!-- Stream Name -->
-                                <div class="col-md-12 mb-3">
-                                    <label class="form-label">Stream Name *</label>
-                                    <input type="text" name="stream_name" class="form-control">
-                                    <span class="text-danger error-message" id="error_stream_name"></span>
+                                {{-- Department --}}
+                                <div class="col-md-4 mb-3">
+                                    <label>Department *</label>
+                                    <select name="department" class="form-select">
+                                        <option value="">Select Department</option>
+                                        @foreach ($departments as $department)
+                                            <option value="{{ $department->id }}">
+                                                {{ $department->department_name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    <span class="text-danger error-message" id="error_department"></span>
                                 </div>
 
-                                <!-- Description -->
-                                <div class="col-md-12 mb-3">
-                                    <label>Description</label>
-                                    <textarea name="description" class="form-control" rows="3"></textarea>
-                                    <span class="text-danger error-message" id="error_description"></span>
+                                {{-- Designation --}}
+                                <div class="col-md-4 mb-3">
+                                    <label>Designation *</label>
+                                    <select name="designation" class="form-select">
+                                        <option value="">Select Designation</option>
+                                        @foreach ($designations as $designation)
+                                            <option value="{{ $designation->id }}">
+                                                {{ $designation->designation_name }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    <span class="text-danger error-message" id="error_designation"></span>
                                 </div>
 
-                                <!-- Stream Icon -->
-                                <div class="col-md-12 mb-3">
-                                    <label>Stream Icon</label>
-                                    <input type="file" name="stream_icon" class="form-control" accept="image/*">
-                                    <span class="text-danger error-message" id="error_stream_icon"></span>
-
+                                {{-- Employee Type --}}
+                                <div class="col-md-4 mb-3">
+                                    <label>Employee Type *</label>
+                                    <select name="employee_type" class="form-select">
+                                        <option value="">Select Type</option>
+                                        @foreach ($employee_types as $type)
+                                            <option value="{{ $type->id }}">
+                                                {{ $type->employee_type }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    <span class="text-danger error-message" id="error_employee_type"></span>
                                 </div>
 
-                                <!-- Status -->
+                                {{-- Full Name --}}
+                                <div class="col-md-6 mb-3">
+                                    <label>Full Name *</label>
+                                    <input type="text" name="name" class="form-control">
+                                    <span class="text-danger error-message" id="error_name"></span>
+                                </div>
+
+                                <div class="col-md-6 mb-3">
+                                    <label>Father's Name *</label>
+                                    <input type="text" name="father_name" class="form-control">
+                                    <span class="text-danger error-message" id="error_father_name"></span>
+                                </div>
+
+                                {{-- Email --}}
+                                <div class="col-md-6 mb-3">
+                                    <label>Email *</label>
+                                    <input type="email" name="email" class="form-control">
+                                    <span class="text-danger error-message" id="error_email"></span>
+                                </div>
+
+                                {{-- Phone --}}
+                                <div class="col-md-6 mb-3">
+                                    <label>Phone *</label>
+                                    <input type="text" name="phone" class="form-control">
+                                    <span class="text-danger error-message" id="error_phone"></span>
+                                </div>
+
+                                {{-- Gender --}}
+                                <div class="col-md-6 mb-3">
+                                    <label>Gender *</label>
+                                    <select name="gender" class="form-select">
+                                        <option value="">Select</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                    <span class="text-danger error-message" id="error_gender"></span>
+                                </div>
+
+                                {{-- Blood Group --}}
+                                <div class="col-md-4 mb-3">
+                                    <label>Blood Group</label>
+                                    <select name="blood_group" class="form-select">
+                                        <option value="">Select...</option>
+                                        @foreach ($blood_groups as $bg)
+                                            <option value="{{ $bg->id }}">
+                                                {{ $bg->blood_group }}
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                    <span class="text-danger error-message" id="error_blood_group"></span>
+                                </div>
+
+                                {{-- DOB --}}
+                                <div class="col-md-4 mb-3">
+                                    <label>Date of Birth *</label>
+                                    <input type="date" name="dob" class="form-control">
+                                    <span class="text-danger error-message" id="error_dob"></span>
+                                </div>
+
+                                {{-- Joining Date --}}
+                                <div class="col-md-4 mb-3">
+                                    <label>Joining Date *</label>
+                                    <input type="date" name="joining_date" class="form-control">
+                                    <span class="text-danger error-message" id="error_joining_date"></span>
+                                </div>
+
+                                {{-- Qualification --}}
+                                <div class="col-md-6 mb-3">
+                                    <label>Highest Qualification</label>
+                                    <input type="text" name="highest_qualification" class="form-control">
+                                </div>
+
+                                {{-- Experience --}}
+                                <div class="col-md-6 mb-3">
+                                    <label>Total Experience (Years)</label>
+                                    <input type="number" name="total_experience" class="form-control">
+                                </div>
+
+                                {{-- Address --}}
+                                <div class="col-md-12 mb-3">
+                                    <label>Present Address</label>
+                                    <textarea name="present_address" class="form-control"></textarea>
+                                </div>
+
+                                {{-- Profile Photo --}}
+                                <div class="col-md-6 mb-3">
+                                    <label>Profile Photo</label>
+                                    <input type="file" name="profile_photo" class="form-control">
+                                    <span class="text-danger error-message" id="error_profile_photo"></span>
+                                </div>
+
+                                {{-- Resume --}}
+                                <div class="col-md-6 mb-3">
+                                    <label>Resume</label>
+                                    <input type="file" name="resume" class="form-control">
+                                </div>
+
+                                {{-- Status --}}
                                 <div class="col-md-4 mb-3">
                                     <label>Status</label>
                                     <select name="status" class="form-select">
                                         <option value="1">Active</option>
                                         <option value="0">Inactive</option>
                                     </select>
-                                    <span class="text-danger error-message" id="error_status"></span>
                                 </div>
 
-                                <!-- Show Web -->
+                                {{-- Show on Web --}}
                                 <div class="col-md-4 mb-3">
                                     <label>Show on Website</label>
-                                    <select name="show_web" class="form-select">
+                                    <select name="show_on_web" class="form-select">
                                         <option value="1">Yes</option>
                                         <option value="0">No</option>
                                     </select>
-                                    <span class="text-danger error-message" id="error_show_web"></span>
                                 </div>
 
-                                <!-- Order -->
+                                {{-- Order --}}
                                 <div class="col-md-4 mb-3">
                                     <label>Order</label>
                                     <input type="number" name="order" class="form-control" value="0">
-                                    <span class="text-danger error-message" id="error_order"></span>
                                 </div>
 
                             </div>
 
                             <div class="text-end">
-                                <button type="submit" id="addStreamBtn" class="btn btn-primary">Save Stream</button>
+                                <button type="submit" id="addTeacherBtn" class="btn btn-primary">
+                                    Save Teacher
+                                </button>
                             </div>
                         </form>
-
                     </div>
                 </div>
             </div>
 
             <!-- =========================
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         EDIT STREAM TAB
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ========================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 EDIT STREAM TAB
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               ========================= -->
             <div class="tab-pane fade" id="edit">
 
                 <div class="card">
                     <div class="card-header">
-                        <h5>Edit Stream</h5>
+                        <h5>Edit Teaching Staff</h5>
                     </div>
 
                     <div class="card-body">
@@ -279,7 +403,7 @@
 
                     <div class="modal-header bg-info py-2">
                         <h5 class="modal-title">
-                            <i class="feather-eye me-1"></i> Stream Details
+                            <i class="feather-eye me-1"></i> Teaching Staff Details
                         </h5>
                         <button type="button" class="btn-close txt-danger" data-bs-dismiss="modal"></button>
                     </div>
@@ -365,29 +489,32 @@
             /* =========================
                DATATABLE
             ========================= */
-            $('#streamList').DataTable();
+            $('#teacherList').DataTable();
 
             function clearErrors() {
                 $('.error-message').text('');
             }
 
             /* =========================
-               ADD STREAM
+               ADD TEACHING STAFF
             ========================= */
-            $('#addStreamForm').submit(function(e) {
+            function clearErrors() {
+                $('.error-message').text('');
+            }
+
+            $('#addTeacherForm').submit(function(e) {
                 e.preventDefault();
                 clearErrors();
 
-                let $btn = $('#addStreamBtn');
-                let originalText = $btn.html();
+                let btn = $('#addTeacherBtn');
+                let originalText = btn.html();
 
-                // Disable button + show processing
-                $btn.prop('disabled', true).html('Processing...');
+                btn.prop('disabled', true).html('Processing...');
 
                 let formData = new FormData(this);
 
                 $.ajax({
-                    url: "{{ route('superadmin.stream.store') }}",
+                    url: "{{ route('superadmin.teachingStaff.store') }}",
                     type: "POST",
                     data: formData,
                     processData: false,
@@ -399,20 +526,20 @@
                     },
 
                     error: function(xhr) {
-                        console.group('🚨 ADD STREAM ERROR');
-                        console.log(xhr.responseText);
-                        console.groupEnd();
+                        console.log(xhr.responseJSON);
 
-                        if (xhr.status === 422 && xhr.responseJSON?.errors) {
+                        if (xhr.status === 422) {
                             $.each(xhr.responseJSON.errors, function(key, value) {
                                 $('#error_' + key).text(value[0]);
                             });
+                        } else {
+                            Swal.fire("Error", "Something went wrong", "error");
                         }
+
                     },
 
                     complete: function() {
-                        // Re-enable button
-                        $btn.prop('disabled', false).html(originalText);
+                        btn.prop('disabled', false).html(originalText);
                     }
                 });
             });

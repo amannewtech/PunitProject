@@ -249,8 +249,8 @@
     </div>
 
     <!-- =========================
-                                                                    VIEW DEPARTMENT MODAL
-                                                                ========================= -->
+                                                                                                                                                                VIEW DEPARTMENT MODAL
+                                                                                                                                                            ========================= -->
     <div class="modal fade custom-modal" id="viewDepartmentModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-lg modal-dialog-centered">
             <div class="modal-content">
@@ -311,6 +311,17 @@
 
 @push('backend-js')
     <script>
+        // ===============Tab toggle Logic==================
+        $('button[data-bs-toggle="tab"]').on('shown.bs.tab', function(e) {
+
+            let target = $(e.target).data('bs-target');
+
+            if (target === '#list' || target === '#add') {
+                $('#editTab').attr('hidden', true);
+                $('#edit').removeClass('show active');
+            }
+        });
+
         $(document).ready(function() {
 
             /* =========================
@@ -337,6 +348,8 @@
 
                 let formData = new FormData(this);
 
+                // alert('Hello');
+
                 $.ajax({
                     url: "{{ route('superadmin.department.store') }}",
                     type: "POST",
@@ -350,7 +363,7 @@
                     },
 
                     error: function(xhr) {
-                        console.group('🚨 ADD Department ERROR');
+                        console.group('🚨 ADD DEPARTMENT ERROR');
                         console.log(xhr.responseText);
                         console.groupEnd();
 
@@ -381,7 +394,7 @@
                     .done(function(data) {
 
                         $('#viewDepartmentName').text(data.department_name);
-                        $('#viewDepartmentStream').text(data.stream.name);
+                        $('#viewDepartmentStream').text(data.stream ? data.stream.name : '-');
                         $('#viewDepartmentDescription').text(data.description ?? 'N/A');
                         $('#viewDepartmentOrder').text(data.order);
 
@@ -415,12 +428,13 @@
                 $.get(url, function(data) {
 
                     $('#edit_department_id').val(data.id);
-                    $('#edit_stream').val(data. ?? stream ? );
+                    $('#edit_stream').val(data.stream_id);
                     $('#edit_department_name').val(data.department_name);
                     $('#edit_description').val(data.description);
                     $('#edit_status').val(data.status);
                     $('#edit_show_web').val(data.show_web);
                     $('#edit_order').val(data.order);
+
                     $('#editTab').removeAttr('hidden');
                     $('#editTab button').trigger('click');
                 });
@@ -428,9 +442,9 @@
             });
 
             /* =========================
-               UPDATE STREAM
+               UPDATE Department
             ========================= */
-            $('#updateStreamBtn').click(function() {
+            $('#updateDepartmentBtn').click(function() {
 
                 let $btn = $(this);
                 let originalText = $btn.html();
@@ -438,11 +452,10 @@
                 // Disable button + show processing
                 $btn.prop('disabled', true).html('Processing...');
 
-                let id = $('#edit_stream_id').val();
+                let id = $('#edit_department_id').val();
                 let url = "{{ route('superadmin.department.update', ':id') }}".replace(':id', id);
 
                 let formData = new FormData();
-                formData.append('_token', '{{ csrf_token() }}');
                 formData.append('_method', 'PUT');
                 formData.append('stream_name', $('#edit_stream').val());
                 formData.append('department_name', $('#edit_department_name').val());
@@ -451,8 +464,6 @@
                 formData.append('show_web', $('#edit_show_web').val());
                 formData.append('order', $('#edit_order').val());
 
-                let icon = $('#edit_stream_icon')[0].files[0];
-                if (icon) formData.append('stream_icon', icon);
 
                 $.ajax({
                     url: url,

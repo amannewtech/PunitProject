@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SuperadminController;
+use App\Http\Controllers\StaffController;
 
 Route::get('/', function () {
     return view('frontend.index');
@@ -38,7 +39,7 @@ Route::middleware('auth')->group(function () {
 
     // Update stream (AJAX)
     Route::put('/stream/update/{id}', [SuperadminController::class, 'stream_update'])
-        ->name('superadmin//.stream.update');
+        ->name('superadmin.stream.update');
 
     // Delete stream (AJAX)
     Route::delete('/stream/delete/{id}', [SuperadminController::class, 'stream_destroy'])
@@ -51,7 +52,7 @@ Route::middleware('auth')->group(function () {
 
 
 
-    // ===============================
+// ===============================
 // DEPARTMENT ROUTES
 // ===============================
 
@@ -80,5 +81,73 @@ Route::delete('/department/delete/{id}', [SuperadminController::class, 'departme
     ->name('superadmin.department.delete');
 
 });
+
+// ===============================
+// DESIGNATION ROUTES
+// ===============================
+
+// Designation listing page
+Route::get('/designation', [SuperadminController::class, 'designation_list'])
+    ->name('superadmin.designation.list');
+
+// Store new designation (AJAX)
+Route::post('/designation/store', [SuperadminController::class, 'designation_store'])
+    ->name('superadmin.designation.store');
+
+// Show designation (view modal)
+Route::get('/designation/view/{id}', [SuperadminController::class, 'designation_show'])
+    ->name('superadmin.designation.show');
+
+// Get designation data for edit (AJAX)
+Route::get('/designation/edit/{id}', [SuperadminController::class, 'designation_edit'])
+    ->name('superadmin.designation.edit');
+
+// Update designation (AJAX)
+Route::put('/designation/update/{id}', [SuperadminController::class, 'designation_update'])
+    ->name('superadmin.designation.update');
+
+// Delete designation (AJAX)
+Route::delete('/designation/delete/{id}', [SuperadminController::class, 'designation_destroy'])
+    ->name('superadmin.designation.delete');
+
+// ===============================
+// EMPLOYEE TYPE ROUTES
+// ===============================
+
+// Employee listing page
+Route::get('/employee-type', [SuperadminController::class, 'employee_type_list'])
+    ->name('superadmin.employeeType.list');
+
+
+
+// ===============================
+// BLOOD GROUP ROUTES
+// ===============================
+
+// Blood Group listing page
+Route::get('/blood-group', [SuperadminController::class, 'blood_group_list'])
+    ->name('superadmin.bloodGroup.list');
+
+
+// ===============================
+// Teaching Staff ROUTES
+// ===============================
+
+Route::get('/teaching-staff', [StaffController::class, 'teaching_staff_list'])
+    ->name('superadmin.teachingStaff.list');
+
+Route::post('/teaching-staff/store', [StaffController::class, 'teaching_staff_store'])
+    ->name('superadmin.teachingStaff.store');
+
+
+
+
+// ===============================
+// Non-Teaching Staff ROUTES
+// ===============================
+
+// Non-Teaching Staff listing page
+Route::get('/non-teaching-staff', [StaffController::class, 'non_teaching_staff_list'])
+    ->name('superadmin.nonTeachingStaff.list');
 
 require __DIR__.'/auth.php';

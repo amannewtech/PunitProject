@@ -29,12 +29,15 @@
                         </li>
                         <li class="nxl-item"><a class="nxl-link"
                                 href="{{ route('superadmin.department.list') }}">Department</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="reports-project.html">Designation</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="reports-timesheets.html">Employee Type</a>
+                        <li class="nxl-item"><a class="nxl-link"
+                                href="{{ route('superadmin.designation.list') }}">Designation</a></li>
+                        <li class="nxl-item"><a class="nxl-link"
+                                href="{{ route('superadmin.employeeType.list') }}">Employee Type</a>
                         </li>
-                        <li class="nxl-item"><a class="nxl-link" href="reports-timesheets.html">Document Category</a>
+                        <li class="nxl-item"><a class="nxl-link" href="{{ route('superadmin.bloodGroup.list') }}">Blood
+                                Gorup</a>
                         </li>
-                        <li class="nxl-item"><a class="nxl-link" href="reports-timesheets.html">Blood Gorup</a>
+                        <li class="nxl-item"><a class="nxl-link" href="#">Document Category</a>
                         </li>
                     </ul>
                 </li>
@@ -45,8 +48,10 @@
                                 class="feather-chevron-right"></i></span>
                     </a>
                     <ul class="nxl-submenu">
-                        <li class="nxl-item"><a class="nxl-link" href="apps-chat.html">Teaching Staff</a></li>
-                        <li class="nxl-item"><a class="nxl-link" href="apps-email.html">Non-teaching</a></li>
+                        <li class="nxl-item"><a class="nxl-link"
+                                href="{{ route('superadmin.teachingStaff.list') }}">Teaching Staff</a></li>
+                        <li class="nxl-item"><a class="nxl-link"
+                                href="{{ route('superadmin.nonTeachingStaff.list') }}">Non-teaching</a></li>
                     </ul>
                 </li>
 

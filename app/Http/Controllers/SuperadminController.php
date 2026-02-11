@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 use App\Models\Stream;
 use App\Models\Department;
-
+use App\Models\Designation;
+use App\Models\BloodGroup;
+use App\Models\EmployeeType;
 use Illuminate\Http\Request;
 
 class SuperadminController extends Controller
@@ -158,8 +160,8 @@ class SuperadminController extends Controller
 
 
 
-    //===============Department Controller Logic ==========================
-   public function department_list()
+ //===============Department Controller Logic ==========================
+public function department_list()
 {
     $departments = Department::with('stream')
         ->orderBy('order')
@@ -204,7 +206,7 @@ public function department_edit($id)
 
 public function department_show($id)
 {
-    $department = Department::findOrFail($id);
+    $department = Department::with('stream')->findOrFail($id);
     return response()->json($department);
 }
 
@@ -212,7 +214,7 @@ public function department_show($id)
 public function department_update(Request $request, $id)
 {
     $validated = $request->validate([
-        'stream'            => 'required|exists:streams,id',
+        'stream_name'       => 'required|exists:streams,id',
         'department_name'   => 'required|string',
         'description'       => 'nullable|string',
         'status'            => 'nullable|in:1,0',
@@ -223,7 +225,7 @@ public function department_update(Request $request, $id)
     $department = Department::findOrFail($id);
 
     $department->update([
-        'stream_id'        => $request->stream,
+        'stream_id'        => $request->stream_name,
         'department_name'  => $request->department_name,
         'description'      => $request->description,
         'status'           => $request->status ?? 0,
@@ -247,6 +249,100 @@ public function department_destroy($id)
     ]);
 }
 
+// =================================
+// ====Designation Logic=================
+// ================================
+public function designation_list()
+{
+    $designations = Designation::get();
 
+
+    return view('backend.master-data.designation', compact('designations'));
+}
+
+public function designation_store(Request $request)
+{
+    $validated = $request->validate([
+        'user_type'            => 'required|integer',
+        'designation_name'   => 'required|string',
+        'status'            => 'nullable|in:1,0',
+    ]);
+
+    Designation::create([
+        'user_type'        => $request->user_type,
+        'designation_name'  => $request->designation_name,
+        'status'           => $request->status ?? 1,
+    ]);
+
+    return response()->json([
+        'success' => 'Designation added successfully!'
+    ]);
+}
+
+
+public function designation_edit($id)
+{
+    $designation = Designation::findOrFail($id);
+    return response()->json($designation);
+}
+
+public function designation_show($id)
+{
+    $designation = Designation::findOrFail($id);
+    return response()->json($designation);
+}
+
+
+public function designation_update(Request $request, $id)
+{
+    $validated = $request->validate([
+        'user_type'       => 'required|integer',
+        'designation_name'   => 'required|string',
+        'status'            => 'nullable|in:1,0',
+    ]);
+
+    $designation = Designation::findOrFail($id);
+
+    $designation->update([
+        'user_type'        => $request->user_type,
+        'designation_name'  => $request->designation_name,
+        'status'           => $request->status ?? 0,
+    ]);
+
+    return response()->json([
+        'success' => 'Designation updated successfully!'
+    ]);
+}
+
+
+public function designation_destroy($id)
+{
+    $designation = Designation::findOrFail($id);
+    $designation->delete();
+
+    return response()->json([
+        'success' => 'Designation deleted successfully.'
+    ]);
+}
+
+// ====================Blood Group Controller Logic===================
+
+public function blood_group_list()
+{
+    $blood_groups = BloodGroup::get();
+
+
+    return view('backend.master-data.blood-group', compact('blood_groups'));
+}
+
+// ====================Employee Type Controller Logic===================
+
+public function employee_type_list()
+{
+    $employee_types = EmployeeType::get();
+
+
+    return view('backend.master-data.employee-type', compact('employee_types'));
+}
 
 }
